@@ -1,0 +1,101 @@
+/* Silk brings Tailwind v4 + tw-animate-css + generated tokens.css (run `pnpm tokens:build` in silk-storybook).
+   Imported by file path (not package specifier) because Silk's package "exports" don't expose this subpath. */
+@import "../node_modules/@silk/components/src/styles/global.css";
+
+/* Tailwind v4 must scan Silk's source (outside our root) so its utility classes aren't purged. */
+@source "/Users/izabela.krol/silk-storybook/src/**/*.{ts,tsx}";
+@source "./**/*.{ts,tsx}";
+
+/* ─────────────────────────────────────────────────────────────
+   AuraCare theme — overrides Silk's tokens AFTER import so ours win.
+   Re-themes the core ramps (semantic tokens resolve through them),
+   warms the surfaces, sets radius 0, and swaps in the brand fonts.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* accent ramp → Forest (accent-700 is the primary/interactive-strong shade) */
+  --color-core-accent-accent-100: #eaefea;
+  --color-core-accent-accent-200: #d6e0d8;
+  --color-core-accent-accent-300: #b4c4b8;
+  --color-core-accent-accent-400: #8ca394;
+  --color-core-accent-accent-500: #5f7a69;
+  --color-core-accent-accent-600: #3c5445;
+  --color-core-accent-accent-700: #1f2c25; /* Forest */
+  --color-core-accent-accent-800: #17211b;
+  --color-core-accent-accent-900: #101712;
+  --color-core-accent-accent-1000: #0b0f0c;
+  --color-core-accent-accent-1100: #070a08;
+  --color-core-accent-accent-1200: #040605;
+
+  /* neutral ramp → warm stone (text-primary=1100=Ink, text-tertiary=700=Stone, border-soft=200=Linen) */
+  --color-core-neutral-neutral-100: #f4eee6;
+  --color-core-neutral-neutral-200: #ded5c8;
+  --color-core-neutral-neutral-300: #cfc5b6;
+  --color-core-neutral-neutral-400: #b8ad9c;
+  --color-core-neutral-neutral-500: #9e9283;
+  --color-core-neutral-neutral-600: #857a6c;
+  --color-core-neutral-neutral-700: #6e675f; /* Stone */
+  --color-core-neutral-neutral-800: #5a554e;
+  --color-core-neutral-neutral-900: #46423c;
+  --color-core-neutral-neutral-1000: #34302b;
+  --color-core-neutral-neutral-1100: #221f1b; /* Ink */
+  --color-core-neutral-neutral-1200: #17140f;
+
+  /* surfaces — warm, not white */
+  --color-surface-page: #faf7f2; /* Alabaster */
+  --color-surface-base: #faf7f2; /* app + default card bg */
+  --color-surface-neutral-soft: #f4eee6; /* Shell (raised) */
+
+  /* text on accent → Parchment */
+  --color-text-inverted: #f6f2ea;
+  --color-text-interactive-on-accent: #f6f2ea;
+
+  /* radius 0 everywhere except full — these are the vars Silk's rounded-* utilities read */
+  --radius-xs: 0px;
+  --radius-s: 0px;
+  --radius-m: 0px;
+  --radius-l: 0px;
+  --radius-xl: 0px;
+  --radius-radius-xs: 0px;
+  --radius-radius-s: 0px;
+  --radius-radius-m: 0px;
+  --radius-radius-l: 0px;
+  --radius-radius-xl: 0px;
+
+  /* fonts — DM Sans for UI, Newsreader for headings */
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-text: "DM Sans", system-ui, sans-serif;
+  --font-button: "DM Sans", system-ui, sans-serif;
+  --font-heading: "Newsreader", Georgia, serif;
+
+  /* AuraCare brand vars for our own (non-Silk) elements */
+  --aura-serif: "Newsreader", Georgia, serif;
+  --aura-sans: "DM Sans", system-ui, sans-serif;
+  --aura-mono: "DM Mono", ui-monospace, monospace;
+  --aura-ink: #221f1b;
+  --aura-mute: #6e675f;
+  --aura-sage: #8c9a8e;
+  --aura-gold: #a9884d;
+  --aura-on-dark: #f6f2ea;
+  --aura-cream: #faf7f2;
+  --aura-shell: #f4eee6;
+  --aura-sand: #efe7dc;
+  --aura-line: #ded5c8;
+  --aura-forest: #1f2c25;
+  --aura-settle: 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --aura-tone-sage: linear-gradient(140deg, #dce2da 0%, #c9d2c6 45%, #aeb9ab 100%);
+  --aura-tone-sand: linear-gradient(140deg, #e7ded4 0%, #d8ccbe 50%, #c0b2a2 100%);
+  --aura-tone-slate: linear-gradient(140deg, #dde3e4 0%, #c7d0d2 50%, #adb8ba 100%);
+  --aura-tone-oat: linear-gradient(140deg, #e6e1d6 0%, #d5cec0 50%, #bdb5a5 100%);
+  --aura-tone-clay: linear-gradient(140deg, #eadfd8 0%, #dcc8bf 50%, #c2a79d 100%);
+  --aura-tone-skin: linear-gradient(150deg, #e9d9cd, #cbbba9);
+}
+
+/* Brand entrance — moves only (never fades opacity from 0), so content is never invisible */
+@keyframes auraSettle {
+  from { transform: translateY(14px); }
+  to { transform: translateY(0); }
+}
+.aura-enter { animation: auraSettle var(--aura-settle) both; }
+@media (prefers-reduced-motion: reduce) {
+  .aura-enter { animation: none; }
+}
