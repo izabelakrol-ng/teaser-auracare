@@ -11,7 +11,7 @@ import {
 } from "@silk/components";
 import { ArrowRightIcon } from "@phosphor-icons/react/ArrowRight";
 import { useAura } from "../store";
-import { toneVar } from "../data";
+import { toneVar, treatmentImage, img } from "../data";
 
 const serif = { fontFamily: "var(--aura-serif)", fontWeight: 300 } as const;
 const eyebrow = {
@@ -70,7 +70,12 @@ export default function Home() {
           <span style={eyebrow}>Considered for you</span>
           <div className="grid gap-4" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", marginTop: 12 }}>
             {data.recommendations.map((r) => (
-              <RecommendationCard key={r.treatmentId} r={r} onOpen={() => goTreatment(r.treatmentId)} />
+              <RecommendationCard
+                key={r.treatmentId}
+                r={r}
+                image={treatmentImage(r.treatmentId)}
+                onOpen={() => goTreatment(r.treatmentId)}
+              />
             ))}
           </div>
         </div>
@@ -172,14 +177,19 @@ function JourneyCard() {
 
 function RecommendationCard({
   r,
+  image,
   onOpen,
 }: {
   r: { name: string; reason: string; tone: string };
+  image?: string;
   onOpen: () => void;
 }) {
+  const bg = image
+    ? { backgroundImage: `url(${img(image, 520, 300)})`, backgroundSize: "cover", backgroundPosition: "center" }
+    : { background: toneVar(r.tone) };
   return (
     <Card isInteractive onClick={onOpen} style={{ padding: 0, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-      <div style={{ height: 96, background: toneVar(r.tone) }} />
+      <div style={{ height: 96, ...bg }} />
       <div style={{ padding: "18px 20px", display: "flex", flexDirection: "column", gap: 7 }}>
         <h3 style={{ ...serif, fontSize: 20, lineHeight: 1.2, margin: 0, color: "var(--aura-ink)" }}>{r.name}</h3>
         <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--aura-mute)", margin: 0 }}>{r.reason}</p>

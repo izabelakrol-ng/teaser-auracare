@@ -9,7 +9,13 @@ import {
 import { ArrowLeftIcon } from "@phosphor-icons/react/ArrowLeft";
 import { CheckIcon } from "@phosphor-icons/react/Check";
 import { useAura } from "../store";
-import { money, toneVar } from "../data";
+import { money, toneVar, img } from "../data";
+
+const cover = (url: string, w: number, h: number) => ({
+  backgroundImage: `url(${img(url, w, h)})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+});
 
 const serif = { fontFamily: "var(--aura-serif)", fontWeight: 300 } as const;
 const eyebrow = { fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" } as const;
@@ -28,7 +34,7 @@ export default function TreatmentDetail() {
 
   return (
     <div className="detail-split" style={{ background: "var(--aura-cream)" }}>
-      <div className="detail-image" style={{ background: toneVar(t.tone) }} />
+      <div className="detail-image" style={t.image ? cover(t.image, 900, 1200) : { background: toneVar(t.tone) }} />
       <div className="detail-body">
         <IconButton aria-label="Back to home" variant="ghost" color="neutral" onClick={() => nav("home")}>
           <ArrowLeftIcon />
@@ -76,7 +82,7 @@ export default function TreatmentDetail() {
           <div style={{ marginTop: 8 }}>
             {others.map((o) => (
               <ListItem key={o.id} onClick={() => select(o.id)}>
-                <div style={{ width: 52, height: 52, flex: "0 0 auto", background: toneVar(o.tone) }} />
+                <div style={{ width: 52, height: 52, flex: "0 0 auto", ...(o.image ? cover(o.image, 120, 120) : { background: toneVar(o.tone) }) }} />
                 <ListItemContent>
                   <ListItemTitle>{o.name}</ListItemTitle>
                   <ListItemDetails>

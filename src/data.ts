@@ -91,6 +91,7 @@ export const data = {
       practitioner: "Dr Amara Silva",
       included: ["Layered cleanse & gentle exfoliation", "Deep hydration serum infusion", "Practitioner skin review"],
       expect: "A calm 60-minute session with no downtime — you return to your day glowing.",
+      image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9",
     },
     {
       id: "advanced-skin-analysis",
@@ -105,6 +106,7 @@ export const data = {
       practitioner: "Dr Amara Silva",
       included: ["Sub-surface hydration & texture mapping", "Personalised phase plan", "Written summary to take home"],
       expect: "A thorough 45-minute reading that shapes the rest of your programme.",
+      image: "https://images.unsplash.com/photo-1552693673-1bf958298935",
     },
     {
       id: "iv-wellness-infusion",
@@ -119,6 +121,7 @@ export const data = {
       practitioner: "Dr Nadia Rahman",
       included: ["Tailored vitamin & mineral blend", "Slow drip in a private room", "Wellness check-in"],
       expect: "A restful 50 minutes; most feel the lift within a day.",
+      image: "https://images.unsplash.com/photo-1544843776-7c98a52e08a4",
     },
     {
       id: "holistic-wellness-consultation",
@@ -133,6 +136,7 @@ export const data = {
       practitioner: "Dr Nadia Rahman",
       included: ["Sleep, stress & movement review", "Skin & nutrition discussion", "Phase-by-phase wellness plan"],
       expect: "An unhurried hour — bring your questions, leave with a plan.",
+      image: "https://images.unsplash.com/photo-1630595271375-5073a6c0638b",
     },
     {
       id: "laser-skin-resurfacing",
@@ -147,6 +151,7 @@ export const data = {
       practitioner: "Dr Amara Silva",
       included: ["Measured resurfacing pass", "Comfort & cooling protocol", "Bespoke after-care kit"],
       expect: "Paced across sessions; expect a gentle recovery, guided at every step.",
+      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881",
     },
   ],
   locations: [
@@ -175,3 +180,8 @@ export const data = {
 export type AuraData = typeof data;
 export const toneVar = (tone: string) => `var(--aura-tone-${tone})`;
 export const money = (p: number) => `£${p}`;
+
+// Unsplash (free license) — calm, warm wellness/skincare imagery per brand direction.
+export const img = (url: string | undefined, w: number, h: number) =>
+  url ? `${url}?auto=format&fit=crop&w=${w}&h=${h}&q=80` : undefined;
+export const treatmentImage = (id: string) => data.treatments.find((t) => t.id === id)?.image;
