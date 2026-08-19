@@ -117,7 +117,7 @@
   padding: 56px 40px; display: flex; flex-direction: column; gap: 28px;
   position: sticky; top: 0; align-self: start; min-height: 100vh;
 }
-.home-main { padding: 56px 48px; display: flex; flex-direction: column; gap: 26px; max-width: 640px; }
+.home-main { padding: 56px 48px; display: flex; flex-direction: column; gap: 26px; max-width: 720px; }
 @media (max-width: 860px) {
   .home-split { grid-template-columns: 1fr; }
   .home-aside { position: static; min-height: auto; border-right: none; border-bottom: 1px solid var(--aura-line); }

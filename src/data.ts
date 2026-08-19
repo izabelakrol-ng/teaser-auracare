@@ -25,6 +25,47 @@ export const data = {
     reason: "To maintain your skin's hydration between sessions.",
     tone: "sage",
   },
+  recommendations: [
+    {
+      treatmentId: "signature-hydrafacial",
+      name: "Signature Hydrafacial",
+      reason: "To maintain your skin's hydration between sessions.",
+      tone: "sage",
+    },
+    {
+      treatmentId: "iv-wellness-infusion",
+      name: "IV Wellness Infusion",
+      reason: "A gentle lift for energy as your programme continues.",
+      tone: "slate",
+    },
+  ],
+  journey: {
+    eyebrow: "Your journey",
+    phases: [
+      { name: "Assessment", note: "Skin mapped", state: "done" },
+      { name: "Renewal", note: "You are here", state: "current" },
+      { name: "Maintenance", note: "From October", state: "upcoming" },
+    ],
+  },
+  careTeam: {
+    eyebrow: "Your care team",
+    members: [
+      { name: "Dr Amara Silva", role: "Lead Aesthetic Practitioner", initials: "AS" },
+      { name: "Nadia Rahman", role: "Wellness Therapist", initials: "NR" },
+    ],
+  },
+  practitionerNote: {
+    eyebrow: "A note from your practitioner",
+    from: "Dr Amara Silva",
+    initials: "AS",
+    message:
+      "Your skin has responded beautifully to the last two sessions, Elena. We'll keep the pace gentle and focus on hydration through the summer.",
+  },
+  recentVisits: [
+    { name: "Radiance Skin Renewal — Session 4", date: "13 August", practitioner: "Dr Amara Silva" },
+    { name: "Radiance Skin Renewal — Session 3", date: "30 July", practitioner: "Dr Amara Silva" },
+    { name: "Advanced Skin Analysis", date: "9 July", practitioner: "Dr Amara Silva" },
+  ],
   upcomingAppointment: {
     eyebrow: "Your next visit",
     treatmentName: "Radiance Skin Renewal — Session 5",
