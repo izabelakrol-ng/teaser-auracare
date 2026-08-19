@@ -1,5 +1,6 @@
 import {
   Button,
+  Card,
   IconButton,
   ListItem,
   ListItemContent,
@@ -7,10 +8,12 @@ import {
   ListItemDetails,
 } from "@silk/components";
 import { ArrowLeftIcon } from "@phosphor-icons/react/ArrowLeft";
+import { CheckIcon } from "@phosphor-icons/react/Check";
 import { useAura } from "../store";
 import { money, toneVar } from "../data";
 
 const serif = { fontFamily: "var(--aura-serif)", fontWeight: 300 } as const;
+const eyebrow = { fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" } as const;
 
 export default function TreatmentDetail() {
   const { data, booking, setBooking, nav } = useAura();
@@ -48,7 +51,28 @@ export default function TreatmentDetail() {
           <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--aura-ink)", margin: 0 }}>{t.longDescription}</p>
         </div>
 
-        <div className="aura-enter" style={{ animationDelay: "180ms", marginTop: 32 }}>
+        {/* What's included / What to expect */}
+        <div
+          style={{ marginTop: 32, display: "grid", gap: 20, gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", maxWidth: 620 }}
+        >
+          <div className="flex flex-col gap-3">
+            <span style={eyebrow}>What's included</span>
+            <div className="flex flex-col gap-2.5">
+              {t.included.map((item) => (
+                <div key={item} className="flex items-start gap-2.5">
+                  <CheckIcon size={16} style={{ color: "var(--aura-gold)", flex: "0 0 auto", marginTop: 3 }} />
+                  <span style={{ fontSize: 14, lineHeight: 1.55, color: "var(--aura-ink)" }}>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <Card className="bg-surface-neutral-soft" style={{ padding: "20px 22px", display: "flex", flexDirection: "column", gap: 8 }}>
+            <span style={eyebrow}>What to expect</span>
+            <p style={{ ...serif, fontSize: 17, lineHeight: 1.5, color: "var(--aura-ink)", margin: 0 }}>{t.expect}</p>
+          </Card>
+        </div>
+
+        <div style={{ marginTop: 32 }}>
           <Button variant="fill" color="accent" size="l" onClick={() => nav("booking")}>
             Book this treatment
           </Button>

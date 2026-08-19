@@ -89,6 +89,8 @@ export const data = {
       duration: "60 minutes",
       price: 220,
       practitioner: "Dr Amara Silva",
+      included: ["Layered cleanse & gentle exfoliation", "Deep hydration serum infusion", "Practitioner skin review"],
+      expect: "A calm 60-minute session with no downtime — you return to your day glowing.",
     },
     {
       id: "advanced-skin-analysis",
@@ -101,6 +103,8 @@ export const data = {
       duration: "45 minutes",
       price: 180,
       practitioner: "Dr Amara Silva",
+      included: ["Sub-surface hydration & texture mapping", "Personalised phase plan", "Written summary to take home"],
+      expect: "A thorough 45-minute reading that shapes the rest of your programme.",
     },
     {
       id: "iv-wellness-infusion",
@@ -113,6 +117,8 @@ export const data = {
       duration: "50 minutes",
       price: 260,
       practitioner: "Dr Nadia Rahman",
+      included: ["Tailored vitamin & mineral blend", "Slow drip in a private room", "Wellness check-in"],
+      expect: "A restful 50 minutes; most feel the lift within a day.",
     },
     {
       id: "holistic-wellness-consultation",
@@ -125,6 +131,8 @@ export const data = {
       duration: "60 minutes",
       price: 200,
       practitioner: "Dr Nadia Rahman",
+      included: ["Sleep, stress & movement review", "Skin & nutrition discussion", "Phase-by-phase wellness plan"],
+      expect: "An unhurried hour — bring your questions, leave with a plan.",
     },
     {
       id: "laser-skin-resurfacing",
@@ -137,6 +145,8 @@ export const data = {
       duration: "45 minutes",
       price: 450,
       practitioner: "Dr Amara Silva",
+      included: ["Measured resurfacing pass", "Comfort & cooling protocol", "Bespoke after-care kit"],
+      expect: "Paced across sessions; expect a gentle recovery, guided at every step.",
     },
   ],
   locations: [

@@ -90,15 +90,9 @@
   --aura-tone-skin: linear-gradient(150deg, #e9d9cd, #cbbba9);
 }
 
-/* Brand entrance — moves only (never fades opacity from 0), so content is never invisible */
-@keyframes auraSettle {
-  from { transform: translateY(14px); }
-  to { transform: translateY(0); }
-}
-.aura-enter { animation: auraSettle var(--aura-settle) both; }
-@media (prefers-reduced-motion: reduce) {
-  .aura-enter { animation: none; }
-}
+/* Entrance animation removed per request — .aura-enter is now a no-op
+   (content renders in place, fully visible, no motion). */
+.aura-enter { animation: none; }
 
 /* Wordmark lockup */
 .wordmark {
