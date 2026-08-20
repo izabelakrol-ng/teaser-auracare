@@ -1,5 +1,7 @@
 import {
   Button,
+  Badge,
+  Divider,
   IconButton,
   ListItem,
   ListItemContent,
@@ -40,10 +42,8 @@ export default function TreatmentDetail() {
           <ArrowLeftIcon />
         </IconButton>
 
-        <div className="aura-enter flex flex-col gap-4" style={{ animationDelay: "60ms", maxWidth: "52ch", marginTop: 24 }}>
-          <span style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" }}>
-            {t.category}
-          </span>
+        <div className="flex flex-col gap-4" style={{ maxWidth: "52ch", marginTop: 24 }}>
+          <Badge variant="accent" type="soft" style={{ alignSelf: "flex-start" }}>{t.category}</Badge>
           <h1 style={{ ...serif, fontSize: 34, lineHeight: 1.12, letterSpacing: "-0.015em", color: "var(--aura-ink)", margin: 0 }}>
             {t.name}
           </h1>
@@ -56,15 +56,17 @@ export default function TreatmentDetail() {
           <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--aura-ink)", margin: 0 }}>{t.longDescription}</p>
         </div>
 
-        {/* What's included */}
-        <div className="flex flex-col gap-3" style={{ marginTop: 32, maxWidth: 620 }}>
+        {/* What's included — Silk ListItem + ListItemCheckIcon */}
+        <div className="flex flex-col gap-2" style={{ marginTop: 32, maxWidth: 620 }}>
           <span style={eyebrow}>What's included</span>
-          <div className="flex flex-col gap-2.5">
-            {t.included.map((item) => (
-              <div key={item} className="flex items-start gap-2.5">
-                <CheckIcon size={16} style={{ color: "var(--aura-gold)", flex: "0 0 auto", marginTop: 3 }} />
-                <span style={{ fontSize: 14, lineHeight: 1.55, color: "var(--aura-ink)" }}>{item}</span>
-              </div>
+          <div style={{ marginTop: 4 }}>
+            {t.included.map((item, i) => (
+              <ListItem key={item} hasDivider={i < t.included.length - 1}>
+                <CheckIcon size={18} style={{ color: "var(--aura-gold)", flex: "0 0 auto" }} />
+                <ListItemContent>
+                  <ListItemTitle>{item}</ListItemTitle>
+                </ListItemContent>
+              </ListItem>
             ))}
           </div>
         </div>
@@ -75,19 +77,17 @@ export default function TreatmentDetail() {
           </Button>
         </div>
 
-        <div className="aura-enter" style={{ animationDelay: "300ms", marginTop: 44 }}>
-          <span style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" }}>
-            More treatments
-          </span>
+        <Divider style={{ marginTop: 44 }} />
+
+        <div style={{ marginTop: 24 }}>
+          <span style={eyebrow}>More treatments</span>
           <div style={{ marginTop: 8 }}>
             {others.map((o) => (
-              <ListItem key={o.id} onClick={() => select(o.id)}>
+              <ListItem key={o.id} onClick={() => select(o.id)} style={{ cursor: "pointer" }}>
                 <div style={{ width: 52, height: 52, flex: "0 0 auto", ...(o.image ? cover(o.image, 120, 120) : { background: toneVar(o.tone) }) }} />
                 <ListItemContent>
                   <ListItemTitle>{o.name}</ListItemTitle>
-                  <ListItemDetails>
-                    {o.category} · {o.duration}
-                  </ListItemDetails>
+                  <ListItemDetails>{o.category} · {o.duration}</ListItemDetails>
                 </ListItemContent>
                 <span style={{ ...serif, fontSize: 16, color: "var(--aura-gold)" }}>{money(o.price)}</span>
               </ListItem>
