@@ -25,7 +25,7 @@ const eyebrow = {
   fontSize: 10.5,
   textTransform: "uppercase",
   letterSpacing: "0.28em",
-  color: "var(--aura-sage)",
+  color: "var(--aura-eyebrow)",
 } as const;
 
 const fallback = { background: "var(--aura-tone-skin)", ...serif, color: "rgba(34,31,27,.55)" };
@@ -114,10 +114,13 @@ function ProgrammeCard({ onOpen }: { onOpen: () => void }) {
   const PR = data.activeProgram;
   return (
     <Card
-      isInteractive
+      role="link"
+      aria-label={`Open ${PR.name} programme`}
+      tabIndex={0}
       onClick={onOpen}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(); } }}
       className="bg-surface-interactive-strong text-text-inverted border-transparent"
-      style={{ padding: 30, display: "flex", flexDirection: "column", gap: 18 }}
+      style={{ padding: 30, display: "flex", flexDirection: "column", gap: 18, cursor: "pointer" }}
     >
       <div className="flex items-start justify-between gap-4">
         <span style={{ ...eyebrow, color: "var(--aura-sage)" }}>{PR.eyebrow}</span>

@@ -41,7 +41,7 @@ export default function Confirmation() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <span style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" }}>{C.eyebrow}</span>
+          <span style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-eyebrow)" }}>{C.eyebrow}</span>
           <h1 style={{ ...serif, fontSize: 32, lineHeight: 1.14, letterSpacing: "-0.015em", color: "var(--aura-ink)", margin: 0 }}>{C.message}</h1>
         </div>
 

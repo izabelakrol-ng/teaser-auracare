@@ -72,9 +72,10 @@
   --aura-sans: "DM Sans", system-ui, sans-serif;
   --aura-mono: "DM Mono", ui-monospace, monospace;
   --aura-ink: #221f1b;
-  --aura-mute: #6e675f;
-  --aura-sage: #8c9a8e;
-  --aura-gold: #a9884d;
+  --aura-mute: #6e675f; /* Stone — meta text, ≥4.5:1 on all light surfaces (WCAG AA) */
+  --aura-sage: #8c9a8e; /* light sage — only for eyebrows ON the dark Forest card (4.9:1) + non-text dots */
+  --aura-eyebrow: #46564c; /* deep sage — accessible eyebrow on light surfaces (≥6.3:1 AA) */
+  --aura-gold: #806331; /* deep antique gold — ≥4.5:1 small text on light + ≥3:1 graphical (WCAG AA) */
   --aura-on-dark: #f6f2ea;
   --aura-cream: #faf7f2;
   --aura-shell: #f4eee6;

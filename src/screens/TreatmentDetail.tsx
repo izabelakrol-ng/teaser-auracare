@@ -20,7 +20,7 @@ const cover = (url: string, w: number, h: number) => ({
 });
 
 const serif = { fontFamily: "var(--aura-serif)", fontWeight: 300 } as const;
-const eyebrow = { fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" } as const;
+const eyebrow = { fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-eyebrow)" } as const;
 
 export default function TreatmentDetail() {
   const { data, booking, setBooking, nav } = useAura();

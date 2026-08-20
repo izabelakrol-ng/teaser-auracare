@@ -14,7 +14,7 @@ import { ArrowLeftIcon } from "@phosphor-icons/react/ArrowLeft";
 import { useAura } from "../store";
 
 const serif = { fontFamily: "var(--aura-serif)", fontWeight: 300 } as const;
-const eyebrow = { fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-sage)" } as const;
+const eyebrow = { fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.28em", color: "var(--aura-eyebrow)" } as const;
 
 export default function Booking() {
   const { data, booking, setBooking, nav } = useAura();
